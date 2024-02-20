@@ -37,6 +37,7 @@ export class WriterService {
             });
     }
 
+    // single update command to update multiple rows
     async bulkUpdateWithFullData(updateInventoryInputs: UpdateInventoryInput[], ids: string[]): Promise<Inventory[]> {
         let parameters = [];
         let valuesRows = [];

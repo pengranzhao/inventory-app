@@ -2,12 +2,10 @@ import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, JoinColumn, Unique }
 import { Inventory } from './inventory.entity';
 
 @Entity('orders')
-// @Unique(['orderId', 'productId'])
 export class Order {
     @PrimaryGeneratedColumn()
     id: number;
 
-    // @PrimaryGeneratedColumn('uuid')
     @Column({ name : 'order_id'})
     orderId: string;
   

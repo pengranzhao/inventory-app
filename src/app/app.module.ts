@@ -12,16 +12,13 @@ import { join } from 'path';
     DBModule,
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
-      // autoSchemaFile: 'schema.gql',
       autoSchemaFile: join(process.cwd(), './schema.gql'), // Specify where to generate the schema file
-      sortSchema: true, // Optional: sorts the schema lexicographically
+      sortSchema: true,
       buildSchemaOptions: {
-        // Optional: configuration options for the schema build process
-        dateScalarMode: 'timestamp', // Or 'isoDate'
+        dateScalarMode: 'timestamp',
       },
     }),
   ],
-  // controllers: [AppController],
   providers: [AppService, InventoryResolver],
 })
 export class AppModule {}

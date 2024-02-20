@@ -1,7 +1,5 @@
 import { ObjectType, Field, ID, Int } from '@nestjs/graphql';
-import { Order } from 'src/entities/order.entity';
 import { OrderType } from './order.type';
-// import { OrderType } from './order.type';
 
 @ObjectType('Inventory')
 export class InventoryType {

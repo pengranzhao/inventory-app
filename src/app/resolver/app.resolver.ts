@@ -5,12 +5,15 @@ import { UpdateInventoryInput } from '../model/update-inventory.input';
 
 import { InventorySortInput } from '../model/inventory-sort.input';
 import { InventoryFilterInput } from '../model/inventory-filter.input';
+import { UseFilters } from '@nestjs/common';
+import { AllExceptionFilter } from '../filter/all-exception.filter';
 
 @Resolver(of => InventoryType)
 export class InventoryResolver {
   constructor(private inventoryService: InventoryService) {}
 
   @Query(returns => [InventoryType])
+  @UseFilters(new AllExceptionFilter()) 
   async listInventory(
     @Args('page', { type: () => Int, defaultValue: 1 }) page: number,
     @Args('limit', { type: () => Int, defaultValue: 10 }) limit: number,
@@ -21,8 +24,8 @@ export class InventoryResolver {
   }
 
   @Mutation(returns => [InventoryType])
+  @UseFilters(new AllExceptionFilter()) 
   async updateInventory (
-    // @Args('updateInventoryInputs') updateInventoryInputs: UpdateInventoryInput[],
     @Args('updateInventoryInputs', { type: () => [UpdateInventoryInput] }) updateInventoryInputs: UpdateInventoryInput[],
 
   ) : Promise<InventoryType[]> {

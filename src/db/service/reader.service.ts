@@ -54,6 +54,7 @@ export class ReaderService {
       queryBuilder = queryBuilder.andWhere('inventories.quantity = 0');
     }
 
+    return queryBuilder;
   }
 
 
